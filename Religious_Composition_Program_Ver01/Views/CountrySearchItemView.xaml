@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="Religious_Composition_Program_Ver01.Views.CountrySearchItemView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Religious_Composition_Program_Ver01.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="833" Style="{StaticResource ListItemUserControl}">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="127"/>
+                <ColumnDefinition Width="145"/>
+            </Grid.ColumnDefinitions>
+            <!--Descriptions-->
+            <TextBlock Visibility="Collapsed" x:Name="SelectedDesc" Text="{Binding selectedStringDesc, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
+            <!--Data Outputs-->
+            <!--Years-->
+            <Grid Grid.Column="1" Background="#7700B8">
+                <Label Style="{StaticResource countryLbl}" Content="{Binding Year, FallbackValue='2010', TargetNullValue='2010'}"/>
+                <Rectangle Style="{StaticResource seperatorRect}" Margin="263 0 0 0"/>
+            </Grid>
+            <!--Christians-->
+            <Grid Grid.Column="2">
+                <Label Margin="6 0 0 0" Style="{StaticResource itemLbl}" Content="{Binding Christians, FallbackValue='2,918,070,000', TargetNullValue='2,918,070,000'}"/>
+                <Rectangle Style="{StaticResource seperatorRect}" Margin="118 0 0 0"/>
+            </Grid>
+            <!--Muslims-->
+            <Grid Grid.Column="3">
+                <Label Margin="6 0 0 0" Style="{StaticResource itemLbl}" Content="{Binding Muslims, FallbackValue='2,918,070,000', TargetNullValue='2,918,070,000'}"/>
+                <Rectangle Style="{StaticResource seperatorRect}" Margin="118 0 0 0"/>
+            </Grid>
+            <!--Jews-->
+            <Grid Grid.Column="4">
+                <Label Margin="6 0 0 0" Style="{StaticResource itemLbl}" Content="{Binding Jews, FallbackValue='2,918,070,000', TargetNullValue='2,918,070,000'}"/>
+                <Rectangle Style="{StaticResource seperatorRect}" Margin="118 0 0 0"/>
+            </Grid>
+            <!--Unaffiliated-->
+            <Grid Grid.Column="5">
+                <Label Margin="6 0 0 0" Style="{StaticResource itemLbl}" Content="{Binding Unaffiliated, FallbackValue='2,918,070,000', TargetNullValue='2,918,070,000'}"/>
+                <Rectangle Style="{StaticResource seperatorRect}" Margin="125 0 0 0"/>
+            </Grid>
+            <!--All-->
+            <Grid Grid.Column="6">
+                <TextBlock Visibility="Collapsed" x:Name="All" Text="All" />
+                <Label Margin="6 0 0 0" Style="{StaticResource itemLbl}" Content="{Binding All, FallbackValue='2,918,070,000', TargetNullValue='2,918,070,000'}"/>
+                <Rectangle Style="{StaticResource seperatorRect}" Margin="141 0 0 0" Stroke="#5F1A69"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

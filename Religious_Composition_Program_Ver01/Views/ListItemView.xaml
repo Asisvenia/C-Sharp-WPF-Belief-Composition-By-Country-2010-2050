@@ -1,0 +1,108 @@
+﻿<UserControl x:Class="Religious_Composition_Program_Ver01.Views.ListItemView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Religious_Composition_Program_Ver01.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="833" Style="{StaticResource ListItemUserControl}" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="265"/>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="127"/>
+            <ColumnDefinition Width="145"/>
+        </Grid.ColumnDefinitions>
+        <!--Descriptions-->
+        <TextBlock Visibility="Collapsed" x:Name="SelectedDesc" Text="{Binding selectedStringDesc, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
+        <!--Data Outputs-->
+        <!--Flag-->
+        <Grid Grid.Column="0">
+            <Grid.Background>
+                <MultiBinding Converter="{StaticResource StringToBG}">
+                    <Binding ElementName="Country" Path="Text" />
+                    <Binding ElementName="SelectedDesc" Path="Text"/>
+                </MultiBinding>
+            </Grid.Background>
+
+            <Rectangle Style="{StaticResource seperatorRect}" Margin="-50 0 0 0" Stroke="#5F1A69"/>
+            <Image Grid.Column="0" Width="45" Height="45" Margin="10 0 0 0" Source="{Binding FlagPath, FallbackValue={StaticResource unknownFlag},
+                                                                   TargetNullValue={StaticResource unknownFlag}}"/>
+        </Grid>
+        <!--Country-->
+        <Grid Grid.Column="1">
+            <Grid.Background>
+                <MultiBinding Converter="{StaticResource StringToBG}">
+                    <Binding ElementName="Country" Path="Text" />
+                    <Binding ElementName="SelectedDesc" Path="Text"/>
+                </MultiBinding>
+            </Grid.Background>
+            <TextBlock Visibility="Collapsed" x:Name="Country" Text="Country" />
+            <Label Style="{StaticResource countryLbl}" Content="{Binding CountryName, FallbackValue='Democratic Republic of the Congo', TargetNullValue='Democratic Republic of the Congo'}"/>
+            <Rectangle Style="{StaticResource seperatorRect}" Margin="263 0 0 0"/>
+        </Grid>
+        <!--Christians-->
+        <Grid Grid.Column="2">
+            <Grid.Background>
+                <MultiBinding Converter="{StaticResource StringToBG}">
+                    <Binding ElementName="Christians" Path="Text" />
+                    <Binding ElementName="SelectedDesc" Path="Text"/>
+                </MultiBinding>
+            </Grid.Background>
+            <TextBlock Visibility="Collapsed" x:Name="Christians" Text="Christians" />
+            <Label Margin="6 0 0 0" Style="{StaticResource itemLbl}" Content="{Binding Christians, FallbackValue='2,918,070,000', TargetNullValue='2,918,070,000'}"/>
+            <Rectangle Style="{StaticResource seperatorRect}" Margin="118 0 0 0"/>
+        </Grid>
+        <!--Muslims-->
+        <Grid Grid.Column="3">
+            <Grid.Background>
+                <MultiBinding Converter="{StaticResource StringToBG}">
+                    <Binding ElementName="Muslims" Path="Text" />
+                    <Binding ElementName="SelectedDesc" Path="Text"/>
+                </MultiBinding>
+            </Grid.Background>
+            <TextBlock Visibility="Collapsed" x:Name="Muslims" Text="Muslims" />
+            <Label Margin="6 0 0 0" Style="{StaticResource itemLbl}" Content="{Binding Muslims, FallbackValue='2,918,070,000', TargetNullValue='2,918,070,000'}"/>
+            <Rectangle Style="{StaticResource seperatorRect}" Margin="118 0 0 0"/>
+        </Grid>
+        <!--Jews-->
+        <Grid Grid.Column="4">
+            <Grid.Background>
+                <MultiBinding Converter="{StaticResource StringToBG}">
+                    <Binding ElementName="Jews" Path="Text" />
+                    <Binding ElementName="SelectedDesc" Path="Text"/>
+                </MultiBinding>
+            </Grid.Background>
+            <TextBlock Visibility="Collapsed" x:Name="Jews" Text="Jews" />
+            <Label Margin="6 0 0 0" Style="{StaticResource itemLbl}" Content="{Binding Jews, FallbackValue='2,918,070,000', TargetNullValue='2,918,070,000'}"/>
+            <Rectangle Style="{StaticResource seperatorRect}" Margin="118 0 0 0"/>
+        </Grid>
+        <!--Unaffiliated-->
+        <Grid Grid.Column="5">
+            <Grid.Background>
+                <MultiBinding Converter="{StaticResource StringToBG}">
+                    <Binding ElementName="Unaffiliated" Path="Text" />
+                    <Binding ElementName="SelectedDesc" Path="Text"/>
+                </MultiBinding>
+            </Grid.Background>
+            <TextBlock Visibility="Collapsed" x:Name="Unaffiliated" Text="Unaffiliated" />
+            <Label Margin="6 0 0 0" Style="{StaticResource itemLbl}" Content="{Binding Unaffiliated, FallbackValue='2,918,070,000', TargetNullValue='2,918,070,000'}"/>
+            <Rectangle Style="{StaticResource seperatorRect}" Margin="125 0 0 0"/>
+        </Grid>
+        <!--All-->
+        <Grid Grid.Column="6">
+            <Grid.Background>
+                <MultiBinding Converter="{StaticResource StringToBG}">
+                    <Binding ElementName="All" Path="Text" />
+                    <Binding ElementName="SelectedDesc" Path="Text"/>
+                </MultiBinding>
+            </Grid.Background>
+            <TextBlock Visibility="Collapsed" x:Name="All" Text="All" />
+            <Label Margin="6 0 0 0" Style="{StaticResource itemLbl}" Content="{Binding All, FallbackValue='2,918,070,000', TargetNullValue='2,918,070,000'}"/>
+            <Rectangle Style="{StaticResource seperatorRect}" Margin="141 0 0 0" Stroke="#5F1A69"/>
+        </Grid>
+    </Grid>
+</UserControl>

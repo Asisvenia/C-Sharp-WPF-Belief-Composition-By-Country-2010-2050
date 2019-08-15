@@ -1,0 +1,54 @@
+﻿<Window x:Class="Religious_Composition_Program_Ver01.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:v="clr-namespace:Religious_Composition_Program_Ver01.Views"
+        xmlns:local="clr-namespace:Religious_Composition_Program_Ver01"
+        mc:Ignorable="d"
+        Title="Religious Composition Ver. 01" Height="750" Width="1001" WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <local:AppViewModel/>
+    </Window.DataContext>
+    <DockPanel>
+        <Grid DockPanel.Dock="Top" Height="50" VerticalAlignment="Top" Loaded="Grid_Loaded">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#3e004a" Offset="0"/>
+                    <GradientStop Color="#a42db5" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="allCountriesBtn" Grid.Column="0" Command="{Binding LoadAllCountriesViewCommand}" 
+                    Style="{StaticResource tabBtn}" Content="All Countries" Click="allCountriesBtn_Click"/>
+            <Button x:Name="byCountryBtn" Grid.Column="1" Command="{Binding LoadCountrySearchViewCommand}" 
+                    Style="{StaticResource tabBtn}" Content="By Country" Click="byCountryBtn_Click"/>
+            <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.ColumnSpan="4">
+                <Label Style="{StaticResource headTitle}" 
+                       Margin="70 0 0 5" Content="Religious Composition by Country, 2010-2050"/>
+                <Label Style="{StaticResource headTitle}" FontSize="11.7"
+                       Margin="-54 25 0 0" Content="Ver. 01"/>
+                <TextBlock x:Name="pewText" Style="{StaticResource pewForumStyle}"
+                       Margin="12 0 0 2" Opacity="0.70">
+                    <Hyperlink NavigateUri="https://www.pewforum.org/2015/04/02/religious-projection-table/2020/number/all/" 
+                               RequestNavigate="Hyperlink_RequestNavigate">
+                        pewforum.org
+                    </Hyperlink>
+                </TextBlock>
+            </StackPanel>
+        </Grid>
+        <Grid>
+            <ContentControl Content="{Binding CurrentView}"/>
+        </Grid>
+    </DockPanel>
+</Window>

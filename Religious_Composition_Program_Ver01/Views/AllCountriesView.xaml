@@ -1,0 +1,96 @@
+﻿<UserControl x:Class="Religious_Composition_Program_Ver01.Views.AllCountriesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:v="clr-namespace:Religious_Composition_Program_Ver01.Views"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:Religious_Composition_Program_Ver01.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <sys:Int32 x:Key="Year2010">2010</sys:Int32>
+        <sys:Int32 x:Key="Year2020">2020</sys:Int32>
+        <sys:Int32 x:Key="Year2030">2030</sys:Int32>
+        <sys:Int32 x:Key="Year2040">2040</sys:Int32>
+        <sys:Int32 x:Key="Year2050">2050</sys:Int32>
+        <sys:Int32 x:Key="num1">1</sys:Int32>
+        <sys:Int32 x:Key="num2">2</sys:Int32>
+        <sys:Int32 x:Key="num3">3</sys:Int32>
+        <sys:Int32 x:Key="num4">4</sys:Int32>
+        <sys:Int32 x:Key="num5">5</sys:Int32>
+        <sys:Int32 x:Key="num6">6</sys:Int32>
+    </UserControl.Resources>
+    <Grid>
+        <Grid DockPanel.Dock="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="55"/>
+                <!--Years-->
+                <RowDefinition Height="45"/>
+                <!--Continents-->
+                <RowDefinition Height="45"/>
+                <!--Continents-->
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="0" Background="#FDDAFF">
+                <StackPanel Orientation="Horizontal" Margin="250 0 0 0">
+                    <RadioButton Command="{Binding UpdateYearsCommand}" CommandParameter="{StaticResource Year2010}" Style="{StaticResource yearsRadioBorder}" GroupName="Years" Content="2010" IsChecked="True"/>
+                    <RadioButton Command="{Binding UpdateYearsCommand}" CommandParameter="{StaticResource Year2020}" Style="{StaticResource yearsRadioBorder}" GroupName="Years" Content="2020" />
+                    <RadioButton Command="{Binding UpdateYearsCommand}" CommandParameter="{StaticResource Year2030}" Style="{StaticResource yearsRadioBorder}" GroupName="Years" Content="2030" />
+                    <RadioButton Command="{Binding UpdateYearsCommand}" CommandParameter="{StaticResource Year2040}" Style="{StaticResource yearsRadioBorder}" GroupName="Years" Content="2040" />
+                    <RadioButton Command="{Binding UpdateYearsCommand}" CommandParameter="{StaticResource Year2050}" Style="{StaticResource yearsRadioBorder}" GroupName="Years" Content="2050" />
+                    <TextBlock x:Name="pewText" Style="{StaticResource devTitle}"
+                      Margin="160 0 0 14">
+                        <Hyperlink Style="{StaticResource devHyperLink}" NavigateUri="https://github.com/Asisvenia" 
+                                   RequestNavigate="Hyperlink_RequestNavigate">
+                            Developed by Onur Can Nisanci
+                        </Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+            <!--Continents section-->
+            <Grid Grid.Row="1" Background="#FDDAFF">
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton Command="{Binding UpdateContinentsCommand}" CommandParameter="All" x:Name="allContinentCB" Width="135" GroupName="Continents" Style="{StaticResource contCb}" IsChecked="True" Content="All"/>
+                    <RadioButton Command="{Binding UpdateContinentsCommand}" CommandParameter="Asia-Pacific" x:Name="asiaCB" GroupName="Continents" Style="{StaticResource contCb}" Width="200" IsChecked="False" Content="Asia-Pacific"/>
+                    <RadioButton Command="{Binding UpdateContinentsCommand}" CommandParameter="Europe" Width="170" x:Name="euroCB" GroupName="Continents" Style="{StaticResource contCb}" IsChecked="False" Content="Europe"/>
+                    <RadioButton Command="{Binding UpdateContinentsCommand}" CommandParameter="Latin America-Caribbean" x:Name="latinCB" GroupName="Continents" Style="{StaticResource contCb}" Width="292" IsChecked="False" Content="Latin America-Caribbean"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="2" Background="#FDDAFF">
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton Command="{Binding UpdateContinentsCommand}" CommandParameter="Middle East-North Africa" x:Name="middleECB" GroupName="Continents" Style="{StaticResource contCb}" Width="292" IsChecked="False" Content="Middle East-North Africa"/>
+                    <RadioButton Command="{Binding UpdateContinentsCommand}" CommandParameter="Sub-Saharan Africa" x:Name="saharanCB" GroupName="Continents" Style="{StaticResource contCb}" Width="260" IsChecked="False" Content="Sub-Saharan Africa"/>
+                    <RadioButton Command="{Binding UpdateContinentsCommand}" CommandParameter="North America" x:Name="naCB" GroupName="Continents" Style="{StaticResource contCb}" Width="226" IsChecked="False" Content="North America"/>
+                </StackPanel>
+            </Grid>
+            <!--Descriptions-->
+            <Grid Grid.Row="3" Background="#FDDAFF">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Visibility="Collapsed" x:Name="LastDesc" Text="{Binding selectedStringDesc, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <CheckBox Command="{Binding UpdateDescsCommand}" CommandParameter="{StaticResource num1}" IsChecked="{Binding DescBooleans[1], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="countryCB" Style="{StaticResource descCb}" Margin="147 15 0 0" Content="Country"/>
+                    <CheckBox Command="{Binding UpdateDescsCommand}" CommandParameter="{StaticResource num2}" IsChecked="{Binding DescBooleans[2], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="chrisCB" Style="{StaticResource descCb}" Margin="76 15 0 0" Content="Christians"/>
+                    <CheckBox Command="{Binding UpdateDescsCommand}" CommandParameter="{StaticResource num3}" IsChecked="{Binding DescBooleans[3], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="muslimCB" Style="{StaticResource descCb}" Margin="17 15 0 0" Content="Muslims"/>
+                    <CheckBox Command="{Binding UpdateDescsCommand}" CommandParameter="{StaticResource num4}" IsChecked="{Binding DescBooleans[4], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="jewCB" Style="{StaticResource descCb}" Margin="22 15 0 0" Content="Jews"/>
+                    <CheckBox Command="{Binding UpdateDescsCommand}" CommandParameter="{StaticResource num5}" IsChecked="{Binding DescBooleans[5], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="unaffiliatedCB" Style="{StaticResource descCb}" Margin="22 15 0 0" Content="Unaffiliated"/>
+                    <CheckBox Command="{Binding UpdateDescsCommand}" CommandParameter="{StaticResource num6}" IsChecked="{Binding DescBooleans[6], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="allCB" Style="{StaticResource descCb}" Margin="40 15 0 0" Content="All"/>
+                </StackPanel>
+            </Grid>
+            <!--List View-->
+            <Grid Grid.Row="4">
+                <ListView ItemsSource="{Binding SelectedReligiousData}" ItemContainerStyle="{StaticResource ListViewContainerStyle}"
+                          Background="#FDDAFF">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <v:ListItemView/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
