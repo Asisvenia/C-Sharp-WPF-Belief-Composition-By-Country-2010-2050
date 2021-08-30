@@ -5,6 +5,9 @@
 * A CSV file from **pewforum.com** used to access all those data.
 * **Value Converter, ICommand and INotifyPropertyChanged** concepts used on that application.
 
+![belief_composition_app01](https://user-images.githubusercontent.com/39779689/131330139-df8d2103-a84d-4c78-a42c-657ae4d864e6.png)
+![belief_composition_app02](https://user-images.githubusercontent.com/39779689/131330142-af47046c-89d8-4784-8e03-7a180d251bdb.png)
+
 # Getting Started
 
 * Be sure to at least have **.NET 4.6.1 version** on your computer.
