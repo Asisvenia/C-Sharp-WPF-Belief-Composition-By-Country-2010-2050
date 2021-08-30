@@ -3,7 +3,7 @@
 * This repository contains a belief composition app which is based on **WPF** and **C#** that implements **MVVM architecture**.
 * Main purpose of this desktop app is belief profile of the world can be compared across continents and countries. Desired country can be searched and examined by years.
 * A CSV file from **pewforum.com** used to access all those data.
-* **Value Converter, ICommand and INotifyPropertyChanged** concepts used on that application.
+* **Value Converter, ICommand and INotifyPropertyChanged** concepts implemented on that application.
 
 ![belief_composition_app01](https://user-images.githubusercontent.com/39779689/131330139-df8d2103-a84d-4c78-a42c-657ae4d864e6.png)
 ![belief_composition_app02](https://user-images.githubusercontent.com/39779689/131330142-af47046c-89d8-4784-8e03-7a180d251bdb.png)
